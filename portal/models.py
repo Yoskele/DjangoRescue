@@ -3,13 +3,6 @@ from django.db import models
 
 
 
-class Test(models.Model):
-    test = models.CharField(max_length=200)
-
-
-
-
-
 class Event(models.Model):
     CATEGORY = (
         ('fire', 'Fire'),
@@ -54,9 +47,12 @@ class Person(models.Model):
     last_name = models.CharField(max_length=50)
     other_name = models.CharField(max_length=50)
     status = models.CharField(max_length=50)
-    id_number = models.IntegerField(default=0)
-    mobile = models.IntegerField(default=0)
+    id_number = models.CharField(max_length=50)
+    mobile = models.CharField(max_length=50)
     email = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.id_number, self.mobile
 
 # to do: add Person model---  DONE

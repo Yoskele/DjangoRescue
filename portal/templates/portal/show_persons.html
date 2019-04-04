@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %} Safe  {% endblock %}
+{% block content %}
+
+<div class="container">
+
+<h3 class="mt-5"> Persons Marked as Safe </h3>
+
+	{% for person in persons %}
+
+<div class="list-group mt-1">
+
+  <a href="#" class="list-group-item list-group-item-action">{{ person.first_name }} {{ person.last_name }}</a>
+</div>
+
+
+	{% endfor%}
+</div>
+{% endblock %}
+
