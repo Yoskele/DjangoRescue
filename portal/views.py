@@ -3,7 +3,7 @@ from django.db.models import Q
 
 from .models import PersonStatus
 
-from .models import Person
+from .models import Person, Event, PersonStatus, Test
 
 
 
@@ -14,23 +14,16 @@ def index(request):
 
 
 def add_person(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        first_name = request.POST.get('first_name')
+        test = Test(test=first_name, )
+        test.save()
+        return render (request, 'portal/add_person.html')
+
     # if request.method == 'POST':
         # ...
         # return redirect('portal:index')
-    if request.method == 'POST':
-        first_name = request.form.get('first_name')
-        last_name = request.form.get('last_name')
-        other_name = request.form.get('other_name')
-        status = request.form.get('status')
-        id_number = request.form.get('id_number')
-        mobile = request.form.get('mobile')
-        email = request.form.get('email')
-        description = request.form.get('description')
-
-        person = Person(first_name, last_name, other_name, status,
-                            id_number, mobile, email, description
-                        )
-        person.save()
     return render(request, 'portal/add_person.html')
 
 

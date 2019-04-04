@@ -3,6 +3,56 @@
 {% block content %}
 
 
+<h4> Test Form Below </h4>
+
+    <form  action="{% url 'portal:add_person' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="row mx-3 my-1">
+            <div class="col-md-3">
+                <span class="h4">First Name:</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="first_name" required>
+            </div>
+        </div>
+
+            <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="container">
     <h1> Add Person </h1>
